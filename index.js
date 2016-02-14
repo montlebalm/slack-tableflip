@@ -12,10 +12,10 @@ if (!process.env.APP_CLIENT_ID || !process.env.APP_CLIENT_SECRET || !process.env
 var app = express();
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-  res.sendStatus(200);
-});
+// Serve static files off root
+app.get('/', express.static(__dirname + '/public'));
 
 // Handle oauth flow
 app.get('/oauth', function(req, res) {
