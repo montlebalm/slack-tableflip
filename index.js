@@ -33,8 +33,9 @@ app.get('/oauth', function(req, res) {
 
 // Respond to webhooks
 app.post('/webhook', function(req, res) {
-  if (!req.body.token === process.env.APP_COMMAND_TOKEN) return;
-  if (!req.body.command || !req.body.command.startsWith('/tableflip')) return;
+  console.log(req);
+  if (!req.body.token === process.env.APP_COMMAND_TOKEN) return res.sendStatus(403);
+  if (!req.body.command || !req.body.command.startsWith('/tableflip')) return res.sendStatus(200);
 
   var flipped_text = flip(req.body.text) || '┻━┻';
   var response_text =  '(╯°□°）╯︵ ' + flipped_text;
