@@ -13,6 +13,10 @@ var app = express();
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
 
+app.get('/', function(req, res) {
+  res.sendStatus(200);
+});
+
 // Handle oauth flow
 app.get('/oauth', function(req, res) {
   var url = 'https://slack.com/api/oauth.access?' + qs.stringify({
