@@ -15,9 +15,6 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Serve static files off root
-app.get('/', express.static(__dirname + '/public'));
-
 // Handle oauth flow
 app.get('/oauth', function(req, res) {
   var url = 'https://slack.com/api/oauth.access?' + qs.stringify({
@@ -56,6 +53,9 @@ app.post('/webhook', function(req, res) {
   // Let Slack know we didn't timeout
   res.send();
 });
+
+// Serve static files off root
+app.get('/', express.static(__dirname + '/public'));
 
 var server = app.listen(process.env.PORT, function() {
   var host = server.address().address;
