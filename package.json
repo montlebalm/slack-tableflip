@@ -23,9 +23,7 @@
   "homepage": "https://github.com/montlebalm/slack-tableflip#readme",
   "dependencies": {
     "botkit": "0.0.5",
+    "dotenv": "^2.0.0",
     "flip": "^1.0.0"
-  },
-  "devDependencies": {
-    "dotenv": "^2.0.0"
   }
 }
