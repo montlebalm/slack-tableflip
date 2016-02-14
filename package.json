@@ -1,0 +1,31 @@
+{
+  "name": "slack-tableflip",
+  "version": "1.0.0",
+  "description": "Flip tables in slack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/montlebalm/slack-tableflip.git"
+  },
+  "keywords": [
+    "slack",
+    "tableflip",
+    "slash-command"
+  ],
+  "author": "Chris Montrois",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/montlebalm/slack-tableflip/issues"
+  },
+  "homepage": "https://github.com/montlebalm/slack-tableflip#readme",
+  "dependencies": {
+    "botkit": "0.0.5",
+    "flip": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0"
+  }
+}
