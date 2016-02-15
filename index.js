@@ -33,7 +33,6 @@ app.get('/oauth', function(req, res) {
 
 // Respond to webhooks
 app.post('/webhook', function(req, res) {
-  console.log(req.body);
   if (!req.body.token === process.env.APP_COMMAND_TOKEN) return res.sendStatus(403);
   if (!req.body.command || !req.body.command.startsWith('/tableflip')) return res.sendStatus(200);
 
