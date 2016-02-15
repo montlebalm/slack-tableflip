@@ -6,24 +6,26 @@ overlords, upend usurpers, invert injustice, and generally flip words upside
 down.
 
 The command can be used by itself or accompanied with text. If no text is
-specified a table will be provided for you. Examples ensue:
+specified a table will be provided for you.
 
-**Command:** `/tableflip`
-**Slack message:** (╯°□°）╯︵ ┻━┻
+### Examples
 
-**Command:** `/tableflip mediocre sushi`
-**Slack message:** (╯°□°）╯︵ ıɥsns ǝɹɔoıpǝɯ
+`/tableflip`<br />
+Response: (╯°□°）╯︵ ┻━┻
+
+`/tableflip mediocre sushi`<br />
+Response: (╯°□°）╯︵ ıɥsns ǝɹɔoıpǝɯ
 
 ### Help
 
-**Help I can't flip emoji!**
-Yes.
+**Help I can't flip emoji!**<br />
+Yep.
 
-**How do I flip emoji?**
+**How do I flip emoji?**<br />
 You can't flip emoji.
 
-**I don't get a mention when someone flips my username**
-What did you do to make them flip you? Think about that before asking me for
+**I don't get a mention when someone flips my username**<br />
+What did you do to make them flip you? Think about that before you ask for
 help.
 
 ### Privacy
