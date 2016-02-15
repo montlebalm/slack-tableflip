@@ -13,7 +13,6 @@ if (!process.env.APP_CLIENT_ID || !process.env.APP_CLIENT_SECRET || !process.env
 var app = express();
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
 // Handle oauth flow
 app.get('/oauth', function(req, res) {
@@ -22,6 +21,7 @@ app.get('/oauth', function(req, res) {
     client_secret: process.env.APP_CLIENT_SECRET,
     code: req.query.code,
   });
+
   request.post(url, function(err, http, body) {
     if (err) {
       res.status(500).send('ERROR: ' + err);
@@ -54,11 +54,6 @@ app.post('/webhook', function(req, res) {
   res.send();
 });
 
-// Serve static files off root
-app.get('/', express.static(__dirname + '/public'));
-
-var server = app.listen(process.env.PORT, function() {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Listening at http://%s:%s', host, port);
+app.listen(process.env.PORT, function() {
+  console.log('Server up...', host, port);
 });
