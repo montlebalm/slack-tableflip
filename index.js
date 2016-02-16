@@ -55,7 +55,7 @@ app.post('/webhook', function(req, res) {
 });
 
 app.listen(process.env.PORT, function() {
-  console.log('Server up...', host, port);
+  console.log('Server listening on', process.env.PORT);
 });
 
 app.get('health', function(req, res) {
