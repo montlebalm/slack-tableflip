@@ -54,10 +54,10 @@ app.post('/webhook', function(req, res) {
   res.send();
 });
 
-app.listen(process.env.PORT, function() {
-  console.log('Server listening on', process.env.PORT);
+app.get('/ping', function(req, res) {
+  res.sendStatus(200);
 });
 
-app.get('health', function(req, res) {
-  res.send('Ok');
+app.listen(process.env.PORT, function() {
+  console.log('Server listening on', process.env.PORT);
 });
