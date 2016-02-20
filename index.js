@@ -24,9 +24,9 @@ app.get('/oauth', function(req, res) {
 
   request.post(url, function(err, http, body) {
     if (err) {
-      res.status(500).send('ERROR: ' + err);
+      res.redirect('https://chrismontrois.net/tableflip/oauth_error.html');
     } else {
-      res.send('Success!');
+      res.redirect('https://chrismontrois.net/tableflip/oauth_success.html');
     }
   });
 });
