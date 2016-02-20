@@ -23,11 +23,8 @@ app.get('/oauth', function(req, res) {
   });
 
   request.post(url, function(err, http, body) {
-    if (err) {
-      res.redirect('https://chrismontrois.net/tableflip/oauth_error.html');
-    } else {
-      res.redirect('https://chrismontrois.net/tableflip/oauth_success.html');
-    }
+    var redirect_url = (err) ? process.env.OAUTH_ERROR_URL : process.env.OAUTH_SUCCESS_URL;
+    res.redirect(redirect_url);
   });
 });
 
@@ -39,21 +36,14 @@ app.post('/webhook', function(req, res) {
   var flipped_text = flip(req.body.text) || '┻━┻';
   var response_text =  '(╯°□°）╯︵ ' + flipped_text;
 
-  // Send our actual response async
-  request({
-    body: {
-      response_type: 'in_channel',
-      text: response_text,
-    },
-    json: true,
-    method: 'post',
-    uri: req.body.response_url,
-  });
-
   // Let Slack know we didn't timeout
-  res.send();
+  res.json({
+    response_type: 'in_channel',
+    text: response_text,
+  });
 });
 
+// Leave a route for us to use as a monitor
 app.get('/ping', function(req, res) {
   res.sendStatus(200);
 });
