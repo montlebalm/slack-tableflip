@@ -23,8 +23,11 @@ app.get('/oauth', function(req, res) {
   });
 
   request.post(url, function(err, http, body) {
-    var redirect_url = (err) ? process.env.OAUTH_ERROR_URL : process.env.OAUTH_SUCCESS_URL;
-    res.redirect(redirect_url);
+    if (err || !body.access_token) {
+      res.redirect(process.env.OAUTH_ERROR_URL);
+    } else {
+      res.redirect(process.env.OAUTH_SUCCESS_URL);
+    }
   });
 });
 
