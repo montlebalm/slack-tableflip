@@ -24,8 +24,7 @@ app.get('/oauth', function(req, res) {
 
   request.post(url, function(err, http, body) {
     if (err || !body.ok) {
-      if (err) console.log('error:', err);
-      console.log('request body:', body);
+      console.log('error:', err, body);
       res.redirect(process.env.OAUTH_ERROR_URL);
     } else {
       res.redirect(process.env.OAUTH_SUCCESS_URL);
