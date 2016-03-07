@@ -24,6 +24,12 @@ app.get('/oauth', function(req, res) {
 
   request.post(url, function(err, http, body) {
     if (err || !body.access_token) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('No access_token', body);
+      }
+
       res.redirect(process.env.OAUTH_ERROR_URL);
     } else {
       res.redirect(process.env.OAUTH_SUCCESS_URL);
