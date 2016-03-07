@@ -1,6 +1,6 @@
 try {
   require('dotenv').config();
-} catch () {}
+} catch {}
 
 var body_parser = require('body-parser');
 var express = require('express');
