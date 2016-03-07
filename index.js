@@ -23,7 +23,9 @@ app.get('/oauth', function(req, res) {
   });
 
   request.post(url, function(err, http, body) {
-    if (body.ok && body.access_token) {
+    var info = JSON.parse(body);
+
+    if (info.ok && info.access_token) {
       res.redirect(process.env.OAUTH_SUCCESS_URL);
     } else {
       console.log('error:', err, body);
