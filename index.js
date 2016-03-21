@@ -42,7 +42,6 @@ app.post('/webhook', function(req, res) {
   var flipped_text = flip(req.body.text) || '┻━┻';
   var response_text =  '(╯°□°）╯︵ ' + flipped_text;
 
-  // Let Slack know we didn't timeout
   res.json({
     response_type: 'in_channel',
     text: response_text,
