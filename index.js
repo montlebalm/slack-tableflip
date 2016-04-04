@@ -39,11 +39,16 @@ app.get('/oauth', function(req, res) {
 
 // Respond to webhooks
 app.post('/webhook', function(req, res) {
+  console.log(req.body);
   if (!req.body.token === process.env.APP_COMMAND_TOKEN) return res.sendStatus(403);
+  console.log('token is good');
   if (!req.body.command || !req.body.command.startsWith('/tableflip')) return res.sendStatus(200);
+  console.log('command is tableflip');
 
   var flipped_text = flip(req.body.text) || '┻━┻';
+  console.log('flipped_text', flipped_text);
   var response_text =  '(╯°□°）╯︵ ' + flipped_text;
+  console.log('resp', response_text);
 
   res.json({
     response_type: 'in_channel',
