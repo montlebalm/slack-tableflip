@@ -1,4 +1,4 @@
-require('dotenv').config({ silent: true });
+require('dotenv').config();
 var body_parser = require('body-parser');
 var express = require('express');
 var flip = require('flip');
