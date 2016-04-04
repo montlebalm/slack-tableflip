@@ -40,10 +40,10 @@ app.get('/oauth', function(req, res) {
 // Respond to webhooks
 app.post('/webhook', function(req, res) {
   console.log(req.body);
-  if (req.body.token === process.env.APP_COMMAND_TOKEN) return res.sendStatus(403);
+  // if (req.body.token === process.env.APP_COMMAND_TOKEN) return res.sendStatus(403);
   console.log('token is good');
   console.log(req.body.command);
-  if (req.body.command !== '/tableflip') return res.sendStatus(200);
+  // if (!req.body.command.startsWith('/tableflip')) return res.sendStatus(200);
   console.log('command is tableflip');
 
   var flipped_text = flip(req.body.text) || '┻━┻';
